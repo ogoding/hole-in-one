@@ -15,10 +15,6 @@ public class Move : MonoBehaviour
 	
 	// Update is called once per frame
 	void FixedUpdate ()
-    {        
-		if (gameObject.transform.position.z <= 0)
-        {
-            gameObject.transform.position = new Vector3(0, 1, 150);
-        }	
+    {		
 	}
 }
