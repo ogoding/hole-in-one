@@ -43,8 +43,16 @@ public class WallComponent : MonoBehaviour {
 
     public bool TestOverlapping(Shape shape)
     {
+        if (shape == null)
+        {
+            Debug.LogError("SHAPE IS NULL");
+        }
         foreach(GameObject cutout in cutouts)
         {
+            if (cutout == null)
+            {
+                Debug.LogWarning("CUTOUT IS NULL");
+            }
             if (shape.OverlapTest(cutout.GetComponent<Shape>()))
             {
                 return true;
