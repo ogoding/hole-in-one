@@ -83,3 +83,5 @@ C:\Users\100954217\Desktop\hole-in-one\Super Shapester\obj\Debug\Assembly-CSharp
 C:\Users\100954217\Desktop\hole-in-one\Super Shapester\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\100954217\Desktop\hole-in-one\Super Shapester\obj\Debug\Assembly-CSharp-Editor.pdb
 C:\Users\100954217\Desktop\hole-in-one\Super Shapester\Temp\bin\Debug\Assembly-CSharp-Editor-firstpass.pdb
+C:\Users\100954217\Desktop\hole-in-one\Super Shapester\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
+C:\Users\100954217\Desktop\hole-in-one\Super Shapester\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
