@@ -2,12 +2,16 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
-
+public class GameController : MonoBehaviour 
+{
+	[Header ("UI")]
 	public Text scoreText;
 	public Text livesText;
 
-	// Use this for initialization
+	[Header ("Time")]
+	public float startTimescale = 1.0f;
+	public float increaseRate = 0.01f;
+
 	void Start ()
 	{
 		PlayerPrefs.SetInt ("Score", 0);
@@ -15,12 +19,15 @@ public class GameController : MonoBehaviour {
 
 		scoreText.text = "" + PlayerPrefs.GetInt ("Score");
 		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
+
+		Time.timeScale = startTimescale;
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
 	{
 		scoreText.text = "" + PlayerPrefs.GetInt ("Score");
 		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
+
+		Time.timeScale += increaseRate * Time.unscaledDeltaTime;
 	}
 }
