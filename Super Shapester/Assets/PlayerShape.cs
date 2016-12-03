@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -7,8 +8,6 @@ public class PlayerShape : Shape {
     // Shouldn't be changed by code outside this class but is public to allow for setting default value
     public int currentShape;
     public PrimitiveType[] availableShapes;
-	public static int score = 0;
-	public static int lives = 3;
 
     private void Start()
     {
@@ -49,11 +48,11 @@ public class PlayerShape : Shape {
 		{
 			if (!PlayerInShape(gameObject, collider.gameObject))
 			{
-				lives--;
+				PlayerPrefs.SetInt ("Lives", PlayerPrefs.GetInt ("Lives") - 1);
 				// Reset game
-				if (lives == 0)
+				if (PlayerPrefs.GetInt("Lives") == 0)
 				{
-					lives = 3;
+					PlayerPrefs.SetInt("Lives", 3);
 					SceneManager.LoadScene ("main");
 				}					
 			}
@@ -64,7 +63,7 @@ public class PlayerShape : Shape {
 	{
 		if (collider.tag == "Cutout")
 		{
-			score++;
+			PlayerPrefs.SetInt ("Scores", PlayerPrefs.GetInt ("Lives") - 1);
 		}
 	}
 }
