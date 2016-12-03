@@ -33,7 +33,7 @@ public class WallComponent : MonoBehaviour {
 
             // TODO Test for cutouts being too close to other cutouts
             Vector3 position = cutouts[i].transform.localPosition;
-            position.x = Random.Range(-1, 1) / Random.Range(0 + xScale, transform.localScale.x - xScale);
+            position.x = Random.Range(-1, 1) / Random.Range(0 + xScale + padding, transform.localScale.x - xScale - padding);
             position.y = Random.Range(-1, 1) / Random.Range(0 + yScale + padding, transform.localScale.y - yScale - padding);
             cutouts[i].transform.localPosition = position;
 
