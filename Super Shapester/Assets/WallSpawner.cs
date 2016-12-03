@@ -7,17 +7,28 @@ public class WallSpawner : MonoBehaviour {
 	public GameObject player;
 	public List<GameObject> walls;
 	public Transform WALL_SPAWN_POS;
-	public float SPAWN_INTERVAL;	
+	public float SPAWN_INTERVAL;
+	public float WALL_SPEED;
 	private float lastSpawnTime;
 
 	// Use this for initialization
 	void Start () 
 	{
+		WALL_SPEED = 0.5f;
 		player = GameObject.FindGameObjectWithTag("Player");
 		walls = new List<GameObject> ();
 		lastSpawnTime = 0;
 		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
-		walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
+		AddWall();
+	}
+
+	private void AddWall()
+	{
+		GameObject newWall = (GameObject)Instantiate(wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity);
+		newWall.transform.GetChild(0).gameObject.GetComponent<Move>().velocity = new Vector3(0, 0, -WALL_SPEED);
+		walls.Add (newWall);
+
+		WALL_SPEED += 0.1f;
 	}
 
 	// Update is called once per frame
@@ -26,7 +37,7 @@ public class WallSpawner : MonoBehaviour {
 		if (ReadyToSpawn()) 
 		{
 			lastSpawnTime = Time.realtimeSinceStartup;
-			walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
+			AddWall ();
 		}
 
 		// Destroy first wall if it has reached the camera
