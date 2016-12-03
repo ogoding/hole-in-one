@@ -7,6 +7,8 @@ public class PlayerShape : Shape {
     // Shouldn't be changed by code outside this class but is public to allow for setting default value
     public int currentShape;
     public PrimitiveType[] availableShapes;
+	public static int score = 0;
+	public static int lives = 3;
 
     private void Start()
     {
@@ -41,15 +43,19 @@ public class PlayerShape : Shape {
 		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
 	}
 
-	void OnTriggerStay(Collider collider)
+	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.tag == "Wall")
 		{
 			if (!PlayerInShape(gameObject, collider.gameObject))
 			{
-				SceneManager.LoadScene ("main");
-				Debug.Log ("You died!");
-				// Code here to reset game.
+				lives--;
+				// Reset game
+				if (lives == 0)
+				{
+					lives = 3;
+					SceneManager.LoadScene ("main");
+				}					
 			}
 		}
 	}
@@ -58,7 +64,7 @@ public class PlayerShape : Shape {
 	{
 		if (collider.tag == "Cutout")
 		{
-			Debug.Log ("You got a point!");
+			score++;
 		}
 	}
 }
