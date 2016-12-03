@@ -42,7 +42,6 @@ public class WallSpawner : MonoBehaviour {
 			if (ReachedCamera (firstWall))
 			{
 				GameObject wallToDestroy = walls[0];
-				Debug.Log ("Reached Camera");
 				walls.RemoveAt(0);
 				Destroy (wallToDestroy);
 			}
@@ -51,16 +50,12 @@ public class WallSpawner : MonoBehaviour {
 
 	private bool PlayerInShape(GameObject player, GameObject wall)
 	{
-		Debug.Log ("Wall is null: " + walls [0] == null);
-		Debug.Log ("Wall Component is null: " + walls [0].GetComponent<WallComponent> () == null);
-		Debug.Log ("Player is null: " + player == null);
-
 		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
 	}
 
 	private bool ReachedCamera(GameObject wall)
 	{
-		return wall.transform.localPosition.z >= 120;
+		return wall.transform.localPosition.z >= 133;
 	}
 
 	private bool ReadyToSpawn()
