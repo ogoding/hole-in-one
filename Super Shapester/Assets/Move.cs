@@ -10,7 +10,7 @@ public class Move : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		velocity = new Vector3 (0, 0, -1);
+		velocity = new Vector3 (0, 0, -0.5f);
 		gameObject.GetComponent<Move>().enabled = false;
 	}
 	
