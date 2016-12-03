@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerShape : Shape {
@@ -34,4 +35,30 @@ public class PlayerShape : Shape {
 
         GetComponent<MeshFilter>().mesh = PrimitiveHelper.GetPrimitiveMesh(availableShapes[currentShape]);
     }
+
+	private bool PlayerInShape(GameObject player, GameObject wall)
+	{
+		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
+	}
+
+	void OnTriggerStay(Collider collider)
+	{
+		if (collider.tag == "Wall")
+		{
+			if (!PlayerInShape(gameObject, collider.gameObject))
+			{
+				SceneManager.LoadScene ("main");
+				Debug.Log ("You died!");
+				// Code here to reset game.
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider collider)
+	{
+		if (collider.tag == "Cutout")
+		{
+			Debug.Log ("You got a point!");
+		}
+	}
 }

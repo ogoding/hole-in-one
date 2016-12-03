@@ -46,7 +46,7 @@ public class WallSpawner : MonoBehaviour {
 				Destroy (wallToDestroy);
 			}
 		}
-	}			
+	}
 
 	private bool PlayerInShape(GameObject player, GameObject wall)
 	{
