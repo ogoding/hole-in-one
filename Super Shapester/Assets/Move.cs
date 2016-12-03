@@ -8,13 +8,11 @@ public class Move : MonoBehaviour
 
 	// Use this for initialization
 	void Start () 
-	{
-		rb = GetComponent<Rigidbody> ();
-		rb.velocity = velocity;
+	{		
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
-    {		
+    {
 	}
 }
