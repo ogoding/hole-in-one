@@ -157,11 +157,12 @@ MonoBehaviour:
   xScale: 2
   yScale: 2
   zScale: 1.5
-  cutoutCount: 1
+  cutoutCount: 3
   cutouts: []
   cutoutShapes:
   - {fileID: 182714, guid: 1c820ea23093d444994fe6a3cf4e94ba, type: 2}
   - {fileID: 106774, guid: d6bab2da6b5ff6f45a100db607af1b8f, type: 2}
+  MIN_CUTOUT_DIST: 0.2
 --- !u!114 &11488486
 MonoBehaviour:
   m_ObjectHideFlags: 1

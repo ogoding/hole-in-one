@@ -6,39 +6,63 @@ public class WallComponent : MonoBehaviour {
     public float yScale;
     public float zScale;
 
-    static float padding = 0.5f;
+    public static float padding = 2f;
 
     public int cutoutCount;
     public GameObject[] cutouts;
 
     public GameObject[] cutoutShapes;
 
+    public float MIN_CUTOUT_DIST;
+
     private void Start()
     {
-        // generate cutouts - randomise mesh/type
-        // randomise position - ensure min distance between cutouts
         cutouts = new GameObject[cutoutCount];
         for (int i = 0; i < cutoutCount; i++)
         {
-            // generate shapes
-            cutouts[i] = (GameObject)Instantiate(cutoutShapes[Random.Range(0,cutoutShapes.Length)], this.transform.position, this.transform.rotation);
+            GameObject cutout = (GameObject)Instantiate(cutoutShapes[Random.Range(0,cutoutShapes.Length)], this.transform.position, this.transform.rotation);
 
-            Vector3 scale = cutouts[i].transform.localScale;
-            scale.x = xScale + cutouts[i].GetComponent<Shape>().xScale;
-            scale.y = yScale + cutouts[i].GetComponent<Shape>().yScale;
-            scale.z = zScale + cutouts[i].GetComponent<Shape>().zScale;
-            cutouts[i].transform.localScale = scale;
+            Vector3 scale = cutout.transform.localScale;
+            scale.x = xScale + cutout.GetComponent<Shape>().xScale;
+            scale.y = yScale + cutout.GetComponent<Shape>().yScale;
+            scale.z = zScale + cutout.GetComponent<Shape>().zScale;
+            cutout.transform.localScale = scale;
+
+            cutout.transform.parent = this.transform;
             
-            cutouts[i].transform.parent = this.transform;
+            Vector3 position = cutout.transform.localPosition;
+            do
+            {
+                position.x = GetRandomCutoutPosition(0 + xScale, transform.localScale.x - xScale, padding);
+                position.y = GetRandomCutoutPosition(0 + yScale, transform.localScale.y - yScale, padding);
+            } while (!TestValidCutoutPosition(position));
 
-            // TODO Test for cutouts being too close to other cutouts
-            Vector3 position = cutouts[i].transform.localPosition;
-            position.x = Random.Range(-1, 1) / Random.Range(0 + xScale + padding, transform.localScale.x - xScale - padding);
-            position.y = Random.Range(-1, 1) / Random.Range(0 + yScale + padding, transform.localScale.y - yScale - padding);
-            cutouts[i].transform.localPosition = position;
+            cutout.transform.localPosition = position;
 
-            cutouts[i].GetComponent<Renderer>().material.color = Color.red;
+            cutout.GetComponent<Renderer>().material.color = Color.red;
+
+            cutouts[i] = cutout;
         }
+    }
+
+    private float GetRandomCutoutPosition(float min, float max, float padding)
+    {
+        float randPos = Random.Range(min + padding, max - padding);
+        // Shift pos so that 0 is the middle value and turn into a proportion of total range
+        return (randPos - (max / 2)) / max;
+    }
+
+    private bool TestValidCutoutPosition(Vector3 position)
+    {
+        foreach(GameObject cutout in cutouts)
+        {
+            if (cutout != null && Vector3.Distance(position, cutout.transform.localPosition) < MIN_CUTOUT_DIST)
+            {
+                return false;
+            }
+        }
+        
+        return true;
     }
 
     public bool TestOverlapping(Shape shape)
