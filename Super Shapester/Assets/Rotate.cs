@@ -13,6 +13,7 @@ public class Rotate : MonoBehaviour {
 			gameObject.GetComponent<AutoMoveAndRotate> ().enabled = false;
 			gameObject.transform.eulerAngles = new Vector3 (0, 180, 180);
 			gameObject.GetComponent<Rotate> ().enabled = false;
+			gameObject.transform.GetChild (0).GetComponent<Move> ().enabled = true;
 		}
 	}
 

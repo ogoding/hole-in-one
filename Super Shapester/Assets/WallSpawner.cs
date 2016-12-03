@@ -6,9 +6,8 @@ public class WallSpawner : MonoBehaviour {
 	public GameObject wallAnchor;
 	public List<GameObject> walls;
 	public Transform WALL_SPAWN_POS;
-	public int SPAWN_INTERVAL;	
+	public float SPAWN_INTERVAL;	
 	private float lastSpawnTime;
-	private static float yRotLastFrame;
 
 	// Use this for initialization
 	void Start () 
@@ -16,7 +15,7 @@ public class WallSpawner : MonoBehaviour {
 		walls = new List<GameObject> ();
 		lastSpawnTime = 0;
 		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
-		Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity);
+		walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 	}
 	
 	// Update is called once per frame
@@ -29,17 +28,17 @@ public class WallSpawner : MonoBehaviour {
 		}
 
 		// Destroy wall if it has reached the camera
-		foreach (GameObject wall in walls) 
+		foreach (GameObject wallAnchor in walls) 
 		{
+			GameObject wall = wallAnchor.transform.GetChild (0).gameObject;
+
 			if (ReachedCamera (wall))
 			{
-				walls.Remove(wall);
-				Destroy (wall);
+				Debug.Log ("Reached Camera");
+				walls.Remove(wallAnchor);
+				Destroy (wallAnchor);
 			}
 		}			
-			
-		DetachWall ();
-		yRotLastFrame = wallAnchor.transform.rotation.eulerAngles.y;
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
@@ -60,27 +59,11 @@ public class WallSpawner : MonoBehaviour {
 
 	private bool ReachedCamera(GameObject wall)
 	{
-		return wall.gameObject.transform.position.z <= 0;
+		return wall.transform.localPosition.z >= 120;
 	}
 
 	private bool ReadyToSpawn()
 	{
 		return Time.realtimeSinceStartup - lastSpawnTime >= SPAWN_INTERVAL;
-	}
-
-	private void DetachWall()
-	{
-		float yRotThisFrame = wallAnchor.transform.rotation.eulerAngles.y;
-
-		// If the anchor has hit 180 rotation and the wall is ready to be detached
-		if (yRotLastFrame == 0 && yRotThisFrame == 180) 
-		{
-			Debug.Log ("Detached!");
-			//wallAnchor.transform.rotation = Quaternion.Euler (90, 0, 0);
-		}
-
-			//walls [0].transform.parent = null;
-			//wallAnchor.transform.rotation = Quaternion.Euler (90, 0, 0);
-	}
-		
+	}		
 }
