@@ -6,6 +6,8 @@ public class WallComponent : MonoBehaviour {
     public float yScale;
     public float zScale;
 
+    static float padding = 0.5f;
+
     public int cutoutCount;
     public GameObject[] cutouts;
 
@@ -28,7 +30,13 @@ public class WallComponent : MonoBehaviour {
             cutouts[i].transform.localScale = scale;
             
             cutouts[i].transform.parent = this.transform;
-            
+
+            // TODO Test for cutouts being too close to other cutouts
+            Vector3 position = cutouts[i].transform.localPosition;
+            position.x = Random.Range(-1, 1) / Random.Range(0 + xScale + padding, transform.localScale.x - xScale - padding);
+            position.y = Random.Range(-1, 1) / Random.Range(0 + yScale + padding, transform.localScale.y - yScale - padding);
+            cutouts[i].transform.localPosition = position;
+
             cutouts[i].GetComponent<Renderer>().material.color = Color.red;
         }
     }
