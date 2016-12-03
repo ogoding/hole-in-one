@@ -1,7 +1,6 @@
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Assembly-CSharp-Editor.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Assembly-CSharp-Editor.pdb
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\nunit.framework.dll
-C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Bridge.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\UnityEditor.Advertisements.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\UnityEditor.Android.Extensions.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\UnityEditor.dll
@@ -24,7 +23,6 @@ C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Unity.UNetWeaver.d
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\UnityEditor.iOS.Extensions.Common.dll
-C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\SyntaxTree.VisualStudio.Unity.Messaging.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Mono.Cecil.Pdb.dll
 C:\Users\100954217\Desktop\epo\Super Shapester\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

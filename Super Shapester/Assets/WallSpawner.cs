@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WallSpawner : MonoBehaviour {
-	public GameObject newWall;
-	private List<GameObject> walls;
+	public GameObject wallAnchor;
+	public List<GameObject> walls;
 	public Transform WALL_SPAWN_POS;
-	public const int SPAWN_INTERVAL = 3;
+	public float SPAWN_INTERVAL;	
 	private float lastSpawnTime;
 
 	// Use this for initialization
@@ -14,7 +14,8 @@ public class WallSpawner : MonoBehaviour {
 	{
 		walls = new List<GameObject> ();
 		lastSpawnTime = 0;
-		WALL_SPAWN_POS.position = new Vector3 (0, 1, 150);
+		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
+		walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 	}
 	
 	// Update is called once per frame
@@ -23,17 +24,21 @@ public class WallSpawner : MonoBehaviour {
 		if (ReadyToSpawn ()) 
 		{
 			lastSpawnTime = Time.realtimeSinceStartup;
-			walls.Add((GameObject)Instantiate (newWall, WALL_SPAWN_POS.position, Quaternion.identity));
+			walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 		}
 
-		foreach (GameObject wall in walls) 
+		// Destroy wall if it has reached the camera
+		foreach (GameObject wallAnchor in walls) 
 		{
+			GameObject wall = wallAnchor.transform.GetChild (0).gameObject;
+
 			if (ReachedCamera (wall))
 			{
-				walls.Remove(wall);
-				Destroy (wall);
+				Debug.Log ("Reached Camera");
+				walls.Remove(wallAnchor);
+				Destroy (wallAnchor);
 			}
-		}
+		}			
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
@@ -41,6 +46,7 @@ public class WallSpawner : MonoBehaviour {
             Debug.LogError("No player found!");
             return;
         }
+
 
         if (walls.Count > 0)
         {
@@ -53,11 +59,11 @@ public class WallSpawner : MonoBehaviour {
 
 	private bool ReachedCamera(GameObject wall)
 	{
-		return wall.gameObject.transform.position.z <= 0;
+		return wall.transform.localPosition.z >= 120;
 	}
 
 	private bool ReadyToSpawn()
 	{
 		return Time.realtimeSinceStartup - lastSpawnTime >= SPAWN_INTERVAL;
-	}
+	}		
 }

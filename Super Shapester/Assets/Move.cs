@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityStandardAssets.Utility;
 using System.Collections;
 
 public class Move : MonoBehaviour
@@ -9,12 +10,13 @@ public class Move : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		rb = GetComponent<Rigidbody> ();
-		rb.velocity = velocity;
+		velocity = new Vector3 (0, 0, -1);
+		gameObject.GetComponent<Move>().enabled = false;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate ()
-    {		
+    {
+		gameObject.transform.position += velocity;
 	}
 }
