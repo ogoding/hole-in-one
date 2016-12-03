@@ -284,11 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13663acbcc775234ba39935ccb6c29f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
-  playerSpeed: 0.05
+  minX: -13
+  maxX: 13
+  minY: -7
+  maxY: 7
+  playerSpeed: 0.1
 --- !u!4 &603748877
 Transform:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   player: {fileID: 0}
   walls: []
   WALL_SPAWN_POS: {fileID: 401634196}
-  SPAWN_INTERVAL: 3
+  SPAWN_INTERVAL: 5
   WALL_SPEED: 0
 --- !u!4 &1273035841
 Transform:
