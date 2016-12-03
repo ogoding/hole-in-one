@@ -50,7 +50,7 @@ public class WallSpawner : MonoBehaviour {
 
         if (walls.Count > 0)
         {
-            if (walls[0].GetComponent<WallComponent>().TestOverlapping(player.GetComponent<Shape>()))
+            if (walls[0].transform.GetChild(0).GetComponent<WallComponent>().TestOverlapping(player.GetComponent<Shape>()))
             {
                 Debug.Log("Player is colliding with cutout!");
             }

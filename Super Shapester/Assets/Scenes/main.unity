@@ -211,7 +211,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &603748875
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1001 &936040883
 Prefab:
   m_ObjectHideFlags: 0
@@ -270,7 +270,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480626, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.66
       objectReference: {fileID: 0}
     - target: {fileID: 480626, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
       propertyPath: m_LocalRotation.x
@@ -472,10 +472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90cd0acb0acabd499215dd3518847b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newWall: {fileID: 143408, guid: ac6e1cc7dc30a9243adc1641d1c3793d, type: 2}
-  wallAnchor: {fileID: 0}
+  wallAnchor: {fileID: 178166, guid: 671cd9010ac13604c931f15eef06662b, type: 2}
   walls: []
   WALL_SPAWN_POS: {fileID: 401634196}
+  SPAWN_INTERVAL: 3
 --- !u!4 &1273035841
 Transform:
   m_ObjectHideFlags: 0
