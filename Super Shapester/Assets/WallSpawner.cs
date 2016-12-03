@@ -3,57 +3,63 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class WallSpawner : MonoBehaviour {
-	public GameObject newWall;
-	private List<GameObject> walls;
+	public GameObject wallAnchor;
+	public GameObject player;
+	public List<GameObject> walls;
 	public Transform WALL_SPAWN_POS;
-	public const int SPAWN_INTERVAL = 3;
+	public float SPAWN_INTERVAL;	
 	private float lastSpawnTime;
 
 	// Use this for initialization
 	void Start () 
 	{
+		player = GameObject.FindGameObjectWithTag("Player");
 		walls = new List<GameObject> ();
-		StartCoroutine (Spawn ()); 
 		lastSpawnTime = 0;
-		WALL_SPAWN_POS.position = new Vector3 (0, 1, 150);
+		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
+		walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (ReadyToSpawn ()) 
+		if (ReadyToSpawn()) 
 		{
 			lastSpawnTime = Time.realtimeSinceStartup;
-			walls.Add((GameObject)Instantiate (newWall, WALL_SPAWN_POS.position, Quaternion.identity));
+			walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 		}
 
-		foreach (GameObject wall in walls) 
+		// Destroy first wall if it has reached the camera
+		if (walls.Count > 0)
 		{
-			if (ReachedCamera (wall))
+			GameObject firstWall = walls[0].transform.GetChild (0).gameObject;
+
+			if (PlayerInShape(player, firstWall))
 			{
-				walls.Remove(wall);
-				Destroy (wall);
+				Debug.Log("Player is colliding with cutout!");
+			}
+				
+			if (ReachedCamera (firstWall))
+			{
+				GameObject wallToDestroy = walls[0];
+				walls.RemoveAt(0);
+				Destroy (wallToDestroy);
 			}
 		}
+	}			
 
-	}
-
-	private IEnumerator Spawn()
+	private bool PlayerInShape(GameObject player, GameObject wall)
 	{
-		while (true) 
-		{
-			yield return new WaitForSeconds (SPAWN_INTERVAL);
-		}
+		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
 	}
 
 	private bool ReachedCamera(GameObject wall)
 	{
-		return wall.gameObject.transform.position.z <= 0;
+		return wall.transform.localPosition.z >= 133;
 	}
 
 	private bool ReadyToSpawn()
 	{
-		Debug.Log (Time.realtimeSinceStartup);
 		return Time.realtimeSinceStartup - lastSpawnTime >= SPAWN_INTERVAL;
-	}
+	}		
 }
