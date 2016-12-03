@@ -14,7 +14,6 @@ public class WallSpawner : MonoBehaviour {
 	void Start () 
 	{
 		walls = new List<GameObject> ();
-		StartCoroutine (Spawn ()); 
 		lastSpawnTime = 0;
 		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
 		Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity);
@@ -41,15 +40,23 @@ public class WallSpawner : MonoBehaviour {
 
 		DetachWall ();
 		yRotLastFrame = wallAnchor.transform.rotation.eulerAngles.y;
-	}
 
-	private IEnumerator Spawn()
-	{
-		while (true) 
-		{
-			yield return new WaitForSeconds (SPAWN_INTERVAL);
-		}
-	}
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogError("No player found!");
+            return;
+        }
+
+
+        if (walls.Count > 0)
+        {
+            if (walls[0].GetComponent<WallComponent>().TestOverlapping(player.GetComponent<Shape>()))
+            {
+                Debug.Log("Player is colliding with cutout!");
+            }
+        }
+    }
 
 	private bool ReachedCamera(GameObject wall)
 	{
