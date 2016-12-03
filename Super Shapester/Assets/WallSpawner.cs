@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class WallSpawner : MonoBehaviour {
 	public GameObject wallAnchor;
+	public GameObject player;
 	public List<GameObject> walls;
 	public Transform WALL_SPAWN_POS;
 	public float SPAWN_INTERVAL;	
@@ -12,50 +13,50 @@ public class WallSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		player = GameObject.FindGameObjectWithTag("Player");
 		walls = new List<GameObject> ();
 		lastSpawnTime = 0;
 		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
 		walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
-		if (ReadyToSpawn ()) 
+		if (ReadyToSpawn()) 
 		{
 			lastSpawnTime = Time.realtimeSinceStartup;
 			walls.Add((GameObject)Instantiate (wallAnchor, WALL_SPAWN_POS.position, Quaternion.identity));
 		}
 
-		// Destroy wall if it has reached the camera
-		foreach (GameObject wallAnchor in walls) 
+		// Destroy first wall if it has reached the camera
+		if (walls.Count > 0)
 		{
-			GameObject wall = wallAnchor.transform.GetChild (0).gameObject;
+			GameObject firstWall = walls[0].transform.GetChild (0).gameObject;
 
-			if (ReachedCamera (wall))
+			if (PlayerInShape(player, firstWall))
 			{
-				Debug.Log ("Reached Camera");
-				walls.Remove(wallAnchor);
-				Destroy (wallAnchor);
+				Debug.Log("Player is colliding with cutout!");
 			}
-		}			
+				
+			if (ReachedCamera (firstWall))
+			{
+				GameObject wallToDestroy = walls[0];
+				Debug.Log ("Reached Camera");
+				walls.RemoveAt(0);
+				Destroy (wallToDestroy);
+			}
+		}
+	}			
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player == null)
-        {
-            Debug.LogError("No player found!");
-            return;
-        }
+	private bool PlayerInShape(GameObject player, GameObject wall)
+	{
+		Debug.Log ("Wall is null: " + walls [0] == null);
+		Debug.Log ("Wall Component is null: " + walls [0].GetComponent<WallComponent> () == null);
+		Debug.Log ("Player is null: " + player == null);
 
-
-        if (walls.Count > 0)
-        {
-            if (walls[0].transform.GetChild(0).GetComponent<WallComponent>().TestOverlapping(player.GetComponent<Shape>()))
-            {
-                Debug.Log("Player is colliding with cutout!");
-            }
-        }
-    }
+		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
+	}
 
 	private bool ReachedCamera(GameObject wall)
 	{
