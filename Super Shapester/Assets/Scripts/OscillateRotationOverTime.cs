@@ -7,6 +7,17 @@ public class OscillateRotationOverTime : MonoBehaviour
 	public float sinPhase;
 	public Vector3 rotationFrequency;
 	public Vector3 offset;
+	public bool assignRandom;
+	public Vector2 RandomAmount;
+
+	void Start ()
+	{
+		if (assignRandom == true) 
+		{
+			rotationAmount = new Vector3 (Random.Range (-RandomAmount.x, RandomAmount.x), Random.Range (-RandomAmount.x, RandomAmount.x), Random.Range (-RandomAmount.x, RandomAmount.x));
+			rotationFrequency = new Vector3 (Random.Range (-RandomAmount.y, RandomAmount.y), Random.Range (-RandomAmount.y, RandomAmount.y), Random.Range (-RandomAmount.y, RandomAmount.y));
+		}
+	}
 
 	void Update () 
 	{
