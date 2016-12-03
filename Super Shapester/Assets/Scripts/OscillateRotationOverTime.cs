@@ -18,6 +18,5 @@ public class OscillateRotationOverTime : MonoBehaviour
 				(rotationAmount.y * Mathf.Sin(sinPhase * rotationFrequency.y ) + offset.y),
 				(rotationAmount.z * Mathf.Sin(sinPhase * rotationFrequency.z ) + offset.z)
 			);
-
 	}
 }
