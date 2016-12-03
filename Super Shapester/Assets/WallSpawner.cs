@@ -37,7 +37,7 @@ public class WallSpawner : MonoBehaviour {
 				Destroy (wall);
 			}
 		}			
-
+			
 		DetachWall ();
 		yRotLastFrame = wallAnchor.transform.rotation.eulerAngles.y;
 
