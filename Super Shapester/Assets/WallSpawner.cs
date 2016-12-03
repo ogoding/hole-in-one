@@ -34,15 +34,13 @@ public class WallSpawner : MonoBehaviour {
 		{
 			GameObject firstWall = walls[0].transform.GetChild (0).gameObject;
 
-			// This is the key frame where all collisions are performed.
-			// It's the "active" frame per wall.
+			if (PlayerInShape(player, firstWall))
+			{
+				Debug.Log("Player is colliding with cutout!");
+			}
+				
 			if (ReachedCamera (firstWall))
 			{
-				if (PlayerInShape(player))
-				{
-					Debug.Log("Player is colliding with cutout!");
-				}
-
 				GameObject wallToDestroy = walls[0];
 				Debug.Log ("Reached Camera");
 				walls.RemoveAt(0);
@@ -51,13 +49,13 @@ public class WallSpawner : MonoBehaviour {
 		}
 	}			
 
-	private bool PlayerInShape(GameObject player)
+	private bool PlayerInShape(GameObject player, GameObject wall)
 	{
 		Debug.Log ("Wall is null: " + walls [0] == null);
 		Debug.Log ("Wall Component is null: " + walls [0].GetComponent<WallComponent> () == null);
 		Debug.Log ("Player is null: " + player == null);
 
-		return walls [0].transform.GetChild(0).GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
+		return wall.GetComponent<WallComponent> ().TestOverlapping (player.GetComponent<Shape> ());
 	}
 
 	private bool ReachedCamera(GameObject wall)
