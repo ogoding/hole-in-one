@@ -4,30 +4,28 @@ using System.Collections;
 public class Shake : MonoBehaviour {
 
 	public Camera camera;
-	public float shake = 0.0f;
-	public float shakeIntensity;
+	public float shakeIntensity = 0.0f;
 	public float decreaseIntensityBy;
 
 	// Use this for initialization
 	void Start ()
 	{
-		shakeIntensity = 0.5f;
-		decreaseIntensityBy = 0.5f;
+		decreaseIntensityBy = 0.01f;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		if (Input.GetKeyDown (KeyCode.R))
-			shake = 1.0f;
-		if (shake > 0)
+			shakeIntensity = 0.8f;
+		if (shakeIntensity > 0)
 		{
 			camera.transform.localPosition = Random.insideUnitSphere * shakeIntensity;
-			shake -= Time.deltaTime * decreaseIntensityBy;
+			shakeIntensity -= decreaseIntensityBy;
 		} 
 		else
 		{
-			shake = 0.0f;
+			shakeIntensity = 0.0f;
 		}
 	}
 }
