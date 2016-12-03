@@ -15,35 +15,41 @@ public class InputManager : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     
-    void Update () {
-        if (Input.GetButton("Horizontal"))
-        {
-            if (Input.GetAxis("Horizontal") > 0 && PlayerCanMoveInDirection(Direction.Right))
-            {
-                player.transform.Translate(playerSpeed, 0, 0);
-            }
-            else if (PlayerCanMoveInDirection(Direction.Left))
-            {
-                player.transform.Translate(-1 * playerSpeed, 0, 0);
-            }
-        }
+    void Update () 
+	{
+		HandleInput ("P1", player);
+	}
 
-        if (Input.GetButton("Vertical"))
-        {
-            if (Input.GetAxis("Vertical") > 0 && PlayerCanMoveInDirection(Direction.Up))
-            {
-                player.transform.Translate(0, playerSpeed, 0);
-            }
-            else if (PlayerCanMoveInDirection(Direction.Down))
-            {
-                player.transform.Translate(0, -1 * playerSpeed, 0);
-            }
-        }
+	private void HandleInput(string playerID, GameObject player)
+	{
+		if (Input.GetButton(playerID + "Horizontal"))
+		{
+			if (Input.GetAxis(playerID + "Horizontal") > 0 && PlayerCanMoveInDirection(Direction.Right))
+			{
+				player.transform.Translate(playerSpeed, 0, 0);
+			}
+			else if (PlayerCanMoveInDirection(Direction.Left))
+			{
+				player.transform.Translate(-1 * playerSpeed, 0, 0);
+			}
+		}
 
-        if (Input.GetButtonDown("NextShape"))
-        {
-            player.GetComponent<PlayerShape>().nextShape(Input.GetAxis("NextShape") > 0);
-        }
+		if (Input.GetButton(playerID + "Vertical"))
+		{
+			if (Input.GetAxis(playerID + "Vertical") > 0 && PlayerCanMoveInDirection(Direction.Up))
+			{
+				player.transform.Translate(0, playerSpeed, 0);
+			}
+			else if (PlayerCanMoveInDirection(Direction.Down))
+			{
+				player.transform.Translate(0, -1 * playerSpeed, 0);
+			}
+		}
+
+		if (Input.GetButtonDown(playerID + "NextShape"))
+		{
+			player.GetComponent<PlayerShape>().nextShape(Input.GetAxis(playerID + "NextShape") > 0);
+		}
 	}
 
     private bool PlayerCanMoveInDirection(Direction direction)
