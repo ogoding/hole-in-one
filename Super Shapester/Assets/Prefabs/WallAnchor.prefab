@@ -124,11 +124,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Super Shapester/Assets/Prefabs/Wall.prefab
+--- !u!114 &11416630
+=======
 --- !u!114 &11420254
+>>>>>>> master:Super Shapester/Assets/Prefabs/WallAnchor.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD:Super Shapester/Assets/Prefabs/Wall.prefab
+  m_GameObject: {fileID: 143408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cc115e41a5ccb499dce6881964c91c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xScale: 2
+  yScale: 2
+  zScale: 1.5
+  cutoutCount: 1
+  cutouts: []
+  cutoutShapes:
+  - {fileID: 106774, guid: d6bab2da6b5ff6f45a100db607af1b8f, type: 2}
+  - {fileID: 182714, guid: 1c820ea23093d444994fe6a3cf4e94ba, type: 2}
+--- !u!114 &11446988
+=======
   m_GameObject: {fileID: 178166}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -136,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11441118
+>>>>>>> master:Super Shapester/Assets/Prefabs/WallAnchor.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
