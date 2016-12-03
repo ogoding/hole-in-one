@@ -180,6 +180,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13663acbcc775234ba39935ccb6c29f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minX: 0
+  maxX: 0
+  minY: 0
+  maxY: 0
   playerSpeed: 0.05
 --- !u!4 &603748877
 Transform:
@@ -211,7 +215,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480626, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 7.66
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 480626, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
       propertyPath: m_LocalRotation.x
@@ -233,8 +237,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5492144, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1020474506
@@ -418,6 +421,7 @@ MonoBehaviour:
   walls: []
   WALL_SPAWN_POS: {fileID: 401634196}
   SPAWN_INTERVAL: 6
+  WALL_SPEED: 0
 --- !u!4 &1273035841
 Transform:
   m_ObjectHideFlags: 0
@@ -431,3 +435,47 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &1370761138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1370761140}
+  - 114: {fileID: 1370761139}
+  m_Layer: 0
+  m_Name: ScreenShaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1370761139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1370761138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d842e7af4bbe148ad6603e11cae027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1020474510}
+  shake: 0
+  shakeIntensity: 0
+  decreaseIntensityBy: 0
+--- !u!4 &1370761140
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1370761138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -56.89467, y: -5.067829, z: -38.44316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
