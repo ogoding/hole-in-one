@@ -898,65 +898,9 @@ Prefab:
       value: 
       objectReference: {fileID: 963763935}
     - target: {fileID: 11484488, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_Transition
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472722, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_Transition
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427912, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_Transition
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427912, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_DisabledTrigger
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[18].m_Target
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427912, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_PressedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427912, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_HighlightedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427912, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_NormalTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472722, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_NormalTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472722, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_HighlightedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472722, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_PressedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11472722, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_DisabledTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484488, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_NormalTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484488, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_HighlightedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484488, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_PressedTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11484488, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
-      propertyPath: m_AnimationTriggers.m_DisabledTrigger
-      value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1201211353}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
   m_IsPrefabParent: 0
