@@ -213,7 +213,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 401634195}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7, z: 150}
+  m_LocalPosition: {x: 0, y: 0, z: 150}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -538,11 +538,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90cd0acb0acabd499215dd3518847b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallAnchor: {fileID: 178166, guid: 671cd9010ac13604c931f15eef06662b, type: 2}
+  wall: {fileID: 161102, guid: 12379369e771d2f4eb0c3d309ff06dfb, type: 2}
   player: {fileID: 0}
   walls: []
   WALL_SPAWN_POS: {fileID: 401634196}
-  SPAWN_INTERVAL: 20
+  SPAWN_INTERVAL: 3
   WALL_SPEED: 0
 --- !u!4 &1273035841
 Transform:
