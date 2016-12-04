@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Cutout
+  - ScreenShaker
   layers:
   - Default
   - TransparentFX

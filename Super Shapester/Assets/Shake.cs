@@ -12,12 +12,15 @@ public class Shake : MonoBehaviour {
 	{
 		decreaseIntensityBy = 0.01f;
 	}
+
+	public void ShakeScreen(float intensity)
+	{
+		shakeIntensity = intensity;
+	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.R))
-			shakeIntensity = 0.8f;
 		if (shakeIntensity > 0)
 		{
 			camera.transform.localPosition = Random.insideUnitSphere * shakeIntensity;
@@ -28,4 +31,6 @@ public class Shake : MonoBehaviour {
 			shakeIntensity = 0.0f;
 		}
 	}
+
+
 }
