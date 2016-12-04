@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 	void Start ()
 	{
 		PlayerPrefs.SetInt ("Score", 0);
+		PlayerPrefs.SetInt ("Lives", 3);
 
 		scoreText.text = "" + PlayerPrefs.GetInt ("Score");
 		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
