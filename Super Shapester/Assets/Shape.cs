@@ -67,7 +67,7 @@ public class Shape : MonoBehaviour {
     {
         if (cutout != null && cutout.type == type)
         {
-            return Vector3.Distance(cutout.center, this.center) < 1 + cutout.padding;
+            return Vector3.Distance(cutout.center, this.center) < 13 + cutout.padding;
         }
 
         return false;

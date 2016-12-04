@@ -56,7 +56,7 @@ public class PlayerShape : Shape {
 				if (PlayerPrefs.GetInt ("Lives") <= 0) 
 				{
 					PlayerPrefs.SetInt ("Lives", 3);
-					//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 				} 
 				else // If still lives remaining
 				{
