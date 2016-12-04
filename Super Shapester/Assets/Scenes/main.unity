@@ -248,8 +248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
+  difficultyText: {fileID: 0}
   startTimescale: 1
   increaseRate: 0.01
+  timeScaleNow: 0
 --- !u!4 &573198292
 Transform:
   m_ObjectHideFlags: 0
@@ -294,7 +296,7 @@ MonoBehaviour:
   maxX: 13
   minY: -7
   maxY: 7
-  playerSpeed: 0.1
+  playerSpeed: 10
   playerOne: {fileID: 334079324}
   playerTwo: {fileID: 1023289328}
 --- !u!4 &603748877
