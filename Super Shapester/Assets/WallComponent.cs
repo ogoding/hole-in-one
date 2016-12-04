@@ -22,12 +22,9 @@ public class WallComponent : MonoBehaviour {
         for (int i = 0; i < cutoutCount; i++)
         {
             GameObject cutout = (GameObject)Instantiate(cutoutShapes[Random.Range(0,cutoutShapes.Length)], this.transform.position, this.transform.rotation);
-
-            if (cutout.GetComponent<Shape>().type == Shape.ShapeType.Circle)
-            {
-                cutout.transform.localEulerAngles = new Vector3(90, 0, 0);
-            }
-
+			if (cutout.GetComponent<Shape> ().type == Shape.ShapeType.Circle) {
+				cutout.transform.localEulerAngles = new Vector3 (90, 0, 0);
+			}
             Vector3 scale = cutout.transform.localScale;
             scale.x = xScale + cutout.GetComponent<Shape>().xScale;
             scale.y = yScale + cutout.GetComponent<Shape>().yScale;
@@ -79,16 +76,8 @@ public class WallComponent : MonoBehaviour {
 
     public bool TestOverlapping(Shape shape)
     {
-        if (shape == null)
-        {
-            Debug.LogError("SHAPE IS NULL");
-        }
         foreach(GameObject cutout in cutouts)
         {
-            if (cutout == null)
-            {
-                Debug.LogWarning("CUTOUT IS NULL");
-            }
             if (shape.OverlapTest(cutout.GetComponent<Shape>()))
             {
                 return true;

@@ -16,10 +16,10 @@ public class GameController : MonoBehaviour
 
 	void Start ()
 	{
-		PlayerPrefs.SetInt ("Score", 0);
+		PlayerPrefs.SetInt ("Scores", 0);
 		PlayerPrefs.SetInt ("Lives", 3);
 
-		scoreText.text = "" + PlayerPrefs.GetInt ("Score");
+		scoreText.text = "" + PlayerPrefs.GetInt ("Scores");
 		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
 
 		Time.timeScale = startTimescale;
@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
-		scoreText.text = "" + PlayerPrefs.GetInt ("Score");
+		scoreText.text = "" + PlayerPrefs.GetInt ("Scores");
 		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
 
 		Time.timeScale += increaseRate * Time.unscaledDeltaTime;

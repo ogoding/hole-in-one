@@ -792,6 +792,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 94b1e0509c540424a97c1336511d14ff, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &335150919 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 134870, guid: f58fa74171ed0704ebecc0c691124e6a, type: 2}
+  m_PrefabInternal: {fileID: 718970816}
 --- !u!1001 &355339699
 Prefab:
   m_ObjectHideFlags: 0
@@ -1114,6 +1118,10 @@ Prefab:
       propertyPath: m_UseLightProbes
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11435102, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 335150919}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
   m_IsPrefabParent: 0
@@ -2405,6 +2413,10 @@ Prefab:
       propertyPath: m_UseLightProbes
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11435102, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 335150919}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
   m_IsPrefabParent: 0

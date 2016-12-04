@@ -19,11 +19,9 @@ public class InputManager : MonoBehaviour {
     }
     
     void Update () 
-	{
+	{		
 		HandleInput ("P1", playerOne);
-
-		if (playerTwo != null)
-			HandleInput ("P2", playerTwo);
+		HandleInput ("P2", playerTwo);
 	}
 
 	private void HandleInput(string playerID, GameObject player)

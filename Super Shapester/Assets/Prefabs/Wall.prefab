@@ -45,7 +45,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d0b172b45ba2590428e7789c1bbe790b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -139,11 +139,11 @@ MonoBehaviour:
   xScale: 4
   yScale: 4
   zScale: 1.5
-  cutoutCount: 3
+  cutoutCount: 2
   cutouts: []
   cutoutShapes:
   - {fileID: 182714, guid: 1c820ea23093d444994fe6a3cf4e94ba, type: 2}
-  - {fileID: 106774, guid: d6bab2da6b5ff6f45a100db607af1b8f, type: 2}
+  - {fileID: 101942, guid: c86185b7f04280a4ea100f7d703a9f7b, type: 2}
   MIN_CUTOUT_DIST: 0.2
   MAX_POS_ATTEMPT: 20
 --- !u!1001 &100100000

@@ -8,6 +8,7 @@ public class PlayerShape : Shape {
     // Shouldn't be changed by code outside this class but is public to allow for setting default value
     public int currentShape;
     public PrimitiveType[] availableShapes;
+	public GameObject GameOverUI;
 
     private void Start()
     {
@@ -35,6 +36,14 @@ public class PlayerShape : Shape {
         }
 
         GetComponent<MeshFilter>().mesh = PrimitiveHelper.GetPrimitiveMesh(availableShapes[currentShape]);
+		switch (availableShapes [currentShape]) {
+		case PrimitiveType.Cube:
+			type = ShapeType.Rectangle;
+			break;
+		case PrimitiveType.Sphere:
+			type = ShapeType.Circle;
+			break;
+		}
     }
 
 	private bool PlayerInShape(GameObject player, GameObject wall)
@@ -56,7 +65,8 @@ public class PlayerShape : Shape {
 				if (PlayerPrefs.GetInt ("Lives") <= 0) 
 				{
 					PlayerPrefs.SetInt ("Lives", 3);
-					SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+					//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+					GameOverUI.SetActive (true);
 				} 
 				else // If still lives remaining
 				{
@@ -70,7 +80,7 @@ public class PlayerShape : Shape {
 	{
 		if (collider.tag == "Cutout")
 		{
-			PlayerPrefs.SetInt ("Scores", PlayerPrefs.GetInt ("Lives") - 1);
+			PlayerPrefs.SetInt ("Scores", PlayerPrefs.GetInt("Scores") + 1);
 		}
 	}
 }
