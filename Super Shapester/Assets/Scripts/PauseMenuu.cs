@@ -41,7 +41,7 @@ public class PauseMenuu : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevel);
 	}
 	
-	public void MainMenu(){
+	public void Main(){
 		
 		Application.LoadLevel(1);
 	}
