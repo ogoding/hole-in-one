@@ -39,7 +39,7 @@ public class WallComponent : MonoBehaviour {
 
             cutout.transform.localPosition = position;
 
-            cutout.GetComponent<Renderer>().material.color = Color.red;
+			cutout.GetComponent<Renderer>().material.color = Color.black;
 
             cutouts[i] = cutout;
         }

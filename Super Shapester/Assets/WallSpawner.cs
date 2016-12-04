@@ -58,7 +58,7 @@ public class WallSpawner : MonoBehaviour {
 	private bool ReachedCamera(GameObject wall)
 	{
 		return false;
-		return wall.transform.position.z >= 133;
+		return wall.transform.position.z <= 2.2f;
 	}
 
 	private bool ReadyToSpawn()
