@@ -455,7 +455,7 @@ MonoBehaviour:
   movies:
   - {fileID: 15200000, guid: 3cc8de648e8eea14db945d5673ac07c3, type: 3}
   minWaitTime: 1
-  nextScene: main
+  nextScene: Stage_Background
 --- !u!114 &1052419516
 MonoBehaviour:
   m_ObjectHideFlags: 0
