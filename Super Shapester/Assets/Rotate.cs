@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Rotate : MonoBehaviour {
 	
 	// Update is called once per frame
-	void Update () 
+	/*void Update () 
 	{
 		if (FinishedRotating ())
 		{
@@ -23,5 +23,5 @@ public class Rotate : MonoBehaviour {
 			   gameObject.transform.rotation.eulerAngles.x > 0 && 
 			   gameObject.transform.rotation.eulerAngles.y == 180 && 
 			   gameObject.transform.rotation.eulerAngles.z == 180;
-	}
+	}*/
 }
