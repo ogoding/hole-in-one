@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour 
 {
@@ -35,6 +36,11 @@ public class GameController : MonoBehaviour
 		//Time.fixedDeltaTime = Time.timeScale * 0.01667f;
 
 		difficultyText.text = "" + Mathf.RoundToInt (Time.timeScale) + "";
+
+		if (Input.GetKeyDown (KeyCode.R)) 
+		{
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+		}
 	}
 
 	public void HideMouse ()
