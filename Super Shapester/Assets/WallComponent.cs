@@ -14,6 +14,7 @@ public class WallComponent : MonoBehaviour {
     public GameObject[] cutoutShapes;
 
     public float MIN_CUTOUT_DIST;
+    public float MAX_POS_ATTEMPT;
 
     private void Start()
     {
@@ -31,10 +32,16 @@ public class WallComponent : MonoBehaviour {
             cutout.transform.parent = this.transform;
             
             Vector3 position = cutout.transform.localPosition;
+            int genCount = 0;
             do
             {
                 position.x = GetRandomCutoutPosition(0 + xScale, transform.localScale.x - xScale, padding);
                 position.y = GetRandomCutoutPosition(0 + yScale, transform.localScale.y - yScale, padding);
+                genCount++;
+                if (genCount > MAX_POS_ATTEMPT)
+                {
+                    break;
+                }
             } while (!TestValidCutoutPosition(position));
 
             cutout.transform.localPosition = position;
