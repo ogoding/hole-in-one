@@ -19,7 +19,6 @@ public class WallSpawner : MonoBehaviour {
 		walls = new List<GameObject> ();
 		lastSpawnTime = 0;
 		//WALL_SPAWN_POS.position = new Vector3 (0, 1, 0);
-		AddWall();
 	}
 
 	private void AddWall()

@@ -127,6 +127,13 @@ Material:
       data:
         first:
           name: _Metallic
+<<<<<<< HEAD
+        second: 0
+      data:
+        first:
+          name: _InvFade
+=======
+>>>>>>> fda326547a4ab2494b53f03065797063bc5fd495
         second: 1
     m_Colors:
       data:
@@ -137,3 +144,7 @@ Material:
         first:
           name: _Color
         second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TintColor
+        second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}

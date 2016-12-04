@@ -560,7 +560,7 @@ GameObject:
   - 114: {fileID: 1370761139}
   m_Layer: 0
   m_Name: ScreenShaker
-  m_TagString: Untagged
+  m_TagString: ScreenShaker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
