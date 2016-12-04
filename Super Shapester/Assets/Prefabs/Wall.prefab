@@ -145,6 +145,7 @@ MonoBehaviour:
   - {fileID: 182714, guid: 1c820ea23093d444994fe6a3cf4e94ba, type: 2}
   - {fileID: 106774, guid: d6bab2da6b5ff6f45a100db607af1b8f, type: 2}
   MIN_CUTOUT_DIST: 0.2
+  MAX_POS_ATTEMPT: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
