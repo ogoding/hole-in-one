@@ -561,8 +561,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 0}
-  AddPitch: 0
-  AmpPitch: 1
+  AddPitch: 0.92
+  AmpPitch: 0.08
   TestMode: 0
   increasePitchRate: 0
 --- !u!1001 &100100000
