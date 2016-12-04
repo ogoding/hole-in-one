@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
 
 		Time.timeScale += increaseRate * Time.unscaledDeltaTime;
 		timeScaleNow = Time.timeScale;
-		Time.fixedDeltaTime = Time.timeScale * 0.01667f;
+		//Time.fixedDeltaTime = Time.timeScale * 0.01667f;
 
 		difficultyText.text = "" + Mathf.RoundToInt (Time.timeScale) + "";
 	}
