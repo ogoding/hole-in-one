@@ -44,6 +44,9 @@ public class PlayerShape : Shape {
 
 	void OnTriggerEnter(Collider collider)
 	{
+		///
+		///// Collision with Wall
+		///
 		if (collider.tag == "Wall")
 		{
 			if (!PlayerInShape(gameObject, collider.gameObject))
