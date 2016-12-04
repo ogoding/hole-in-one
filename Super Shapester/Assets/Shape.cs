@@ -27,7 +27,7 @@ public class Shape : MonoBehaviour {
 
 	void Update ()
 	{
-		if (type == ShapeType.Circle) 
+		if (type == ShapeType.Circle && (gameObject.name == "Player 1" || gameObject.name == "Player 2")) 
 		{
 			QSquare.SetActive (true);
 			QSphere.SetActive (false);
@@ -38,7 +38,7 @@ public class Shape : MonoBehaviour {
 			ETriangle.SetActive (true);
 		}
 
-		if (type == ShapeType.Rectangle) 
+		if (type == ShapeType.Rectangle && (gameObject.name == "Player 1" || gameObject.name == "Player 2")) 
 		{
 			QSphere.SetActive (false);
 			QSquare.SetActive (false);
@@ -50,7 +50,7 @@ public class Shape : MonoBehaviour {
 		}
 
 		/*
-		if (type == ShapeType.Triangle) 
+		if (type == ShapeType.Triangle && (gameObject.name == "Player 1" || gameObject.name == "Player 2")) 
 		{
 			QSquare.SetActive (false);
 			QSphere.SetActive (true);
