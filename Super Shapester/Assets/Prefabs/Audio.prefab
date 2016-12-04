@@ -74,13 +74,14 @@ GameObject:
   - 4: {fileID: 445244}
   - 82: {fileID: 8264224}
   - 114: {fileID: 11413808}
+  - 114: {fileID: 11478604}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &176238
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +412,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cae9fde060d1cb14b95f5f859d71ee8b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -565,6 +566,21 @@ MonoBehaviour:
   AmpPitch: 0.08
   TestMode: 0
   increasePitchRate: 0
+--- !u!114 &11478604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24cd9d9608758924fb0741e2d88e0d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 8264224}
+  updateStep: 0.2
+  sampleDataLength: 1024
+  clipLoudness: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
