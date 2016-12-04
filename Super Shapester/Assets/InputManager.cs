@@ -33,13 +33,13 @@ public class InputManager : MonoBehaviour {
 			if (Input.GetAxis(playerID + "Horizontal") > 0 && PlayerCanMoveInDirection(Direction.Right, player))
 			{
 				//player.transform.Translate(playerSpeed * (1 / Time.timeScale), 0, 0);
-				player.GetComponent<Rigidbody> ().AddRelativeForce (playerSpeed * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
+				player.GetComponent<Rigidbody> ().AddForce (playerSpeed * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
 
 			}
 			else if (PlayerCanMoveInDirection(Direction.Left, player))
 			{
 				//player.transform.Translate((-1 * playerSpeed) * (1 / Time.timeScale), 0, 0);
-				player.GetComponent<Rigidbody> ().AddRelativeForce ((-1 * playerSpeed) * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
+				player.GetComponent<Rigidbody> ().AddForce ((-1 * playerSpeed) * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
 			}
 		}
 
@@ -48,12 +48,12 @@ public class InputManager : MonoBehaviour {
 			if (Input.GetAxis(playerID + "Vertical") > 0 && PlayerCanMoveInDirection(Direction.Up, player))
 			{
 				//player.transform.Translate(0, playerSpeed * (1 / Time.timeScale), 0);
-				player.GetComponent<Rigidbody> ().AddRelativeForce (0, playerSpeed * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
+				player.GetComponent<Rigidbody> ().AddForce (0, playerSpeed * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
 			}
 			else if (PlayerCanMoveInDirection(Direction.Down, player))
 			{
 				//player.transform.Translate(0, (-1 * playerSpeed) * (1 / Time.timeScale), 0);
-				player.GetComponent<Rigidbody> ().AddRelativeForce (0, (-1 * playerSpeed) * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
+				player.GetComponent<Rigidbody> ().AddForce (0, (-1 * playerSpeed) * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
 			}
 		}
 

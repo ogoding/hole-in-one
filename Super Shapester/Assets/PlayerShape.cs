@@ -53,10 +53,10 @@ public class PlayerShape : Shape {
 			{
 				PlayerPrefs.SetInt ("Lives", PlayerPrefs.GetInt ("Lives") - 1);
 				// Reset game
-				if (PlayerPrefs.GetInt ("Lives") == 0) 
+				if (PlayerPrefs.GetInt ("Lives") <= 0) 
 				{
 					PlayerPrefs.SetInt ("Lives", 3);
-					SceneManager.LoadScene ("main");
+					//SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 				} 
 				else // If still lives remaining
 				{
