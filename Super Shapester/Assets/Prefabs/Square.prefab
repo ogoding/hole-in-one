@@ -64,7 +64,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182714}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: f25b0a4bc7663d64dbeb5f60d9ce632a, type: 3}
 --- !u!65 &6534846
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -92,6 +92,12 @@ MonoBehaviour:
   xScale: 2
   yScale: 2
   zScale: 0
+  QSphere: {fileID: 0}
+  QSquare: {fileID: 0}
+  QTriangle: {fileID: 0}
+  ESphere: {fileID: 0}
+  ESquare: {fileID: 0}
+  ETriangle: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

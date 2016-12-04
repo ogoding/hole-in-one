@@ -121,8 +121,17 @@ MonoBehaviour:
   xScale: 0
   yScale: 0
   zScale: 0
+  QSphere: {fileID: 0}
+  QSquare: {fileID: 0}
+  QTriangle: {fileID: 0}
+  ESphere: {fileID: 0}
+  ESquare: {fileID: 0}
+  ETriangle: {fileID: 0}
   currentShape: 0
-  availableShapes: 0300000000000000
+  availableShapes:
+  - {fileID: 4300000, guid: f25b0a4bc7663d64dbeb5f60d9ce632a, type: 3}
+  - {fileID: 4300000, guid: c0e8376dee82f614d8358d73da57298a, type: 3}
+  GameOverUI: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -7,12 +7,12 @@ public class PlayerShape : Shape {
 
     // Shouldn't be changed by code outside this class but is public to allow for setting default value
     public int currentShape;
-    public PrimitiveType[] availableShapes;
+    public Mesh[] availableShapes;
 	public GameObject GameOverUI;
 
     private void Start()
     {
-        GetComponent<MeshFilter>().mesh = PrimitiveHelper.GetPrimitiveMesh(availableShapes[currentShape]);
+		GetComponent<MeshFilter>().mesh = availableShapes[0];
     }
 
     public void nextShape(bool next)
@@ -35,12 +35,12 @@ public class PlayerShape : Shape {
             currentShape = availableShapes.Length - 1;
         }
 
-        GetComponent<MeshFilter>().mesh = PrimitiveHelper.GetPrimitiveMesh(availableShapes[currentShape]);
-		switch (availableShapes [currentShape]) {
-		case PrimitiveType.Cube:
+        GetComponent<MeshFilter>().mesh = availableShapes[currentShape];
+		switch (availableShapes [currentShape].name) {
+		case "PlayerCube":
 			type = ShapeType.Rectangle;
 			break;
-		case PrimitiveType.Sphere:
+		case "PlayerSphere":
 			type = ShapeType.Circle;
 			break;
 		}
