@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11446942}
   m_Layer: 0
   m_Name: CylinderCutout
-  m_TagString: Untagged
+  m_TagString: Cutout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 101942}
   m_LocalRotation: {x: 0.70710695, y: 0, z: 0, w: 0.70710665}
   m_LocalPosition: {x: -4.28, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.3, z: 1}
+  m_LocalScale: {x: 2.9, y: 1.73, z: 2.82}
   m_LocalEulerAnglesHint: {x: 90, y: -360, z: -360}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,8 +78,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   xScale: 2
-  yScale: -1
-  zScale: 2
+  yScale: -2
+  zScale: 4
+  QSphere: {fileID: 0}
+  QSquare: {fileID: 0}
+  QTriangle: {fileID: 0}
+  ESphere: {fileID: 0}
+  ESquare: {fileID: 0}
+  ETriangle: {fileID: 0}
 --- !u!136 &13637518
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -87,7 +93,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101942}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
