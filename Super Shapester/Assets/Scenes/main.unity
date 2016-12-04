@@ -248,6 +248,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   livesText: {fileID: 0}
+  difficultyText: {fileID: 0}
+  startTimescale: 1
+  increaseRate: 0.01
+  timeScaleNow: 0
 --- !u!4 &573198292
 Transform:
   m_ObjectHideFlags: 0
@@ -292,7 +296,7 @@ MonoBehaviour:
   maxX: 13
   minY: -7
   maxY: 7
-  playerSpeed: 0.1
+  playerSpeed: 10
   playerOne: {fileID: 334079324}
   playerTwo: {fileID: 1023289328}
 --- !u!4 &603748877
@@ -345,6 +349,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 480626, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506868, guid: c9b65dd497782864ca9bac49070932ac, type: 2}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -534,7 +542,7 @@ MonoBehaviour:
   player: {fileID: 0}
   walls: []
   WALL_SPAWN_POS: {fileID: 401634196}
-  SPAWN_INTERVAL: 3
+  SPAWN_INTERVAL: 20
   WALL_SPEED: 0
 --- !u!4 &1273035841
 Transform:
