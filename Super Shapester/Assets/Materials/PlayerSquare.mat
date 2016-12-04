@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Reflective
-  m_Shader: {fileID: 4800000, guid: 404aab3bd0af7a14e961f53e2cf00782, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_Name: PlayerSquare
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -114,10 +114,6 @@ Material:
         second: 0.5
       data:
         first:
-          name: _Shininess
-        second: 0.078125
-      data:
-        first:
           name: _Parallax
         second: 0.02
       data:
@@ -127,7 +123,7 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: 0.942
+        second: 0.61
       data:
         first:
           name: _BumpScale
@@ -156,16 +152,16 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.45588237, g: 0.37208048, b: 0.37208048, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.47363672, g: 0.22123702, b: 0.9117647, a: 0.816}
       data:
         first:
           name: _SpecColor
-        second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
       data:
         first:
           name: _ReflectColor
-        second: {r: 1, g: 1, b: 1, a: 0.5}
+        second: {r: 0.8308824, g: 0.6475995, b: 0.6475995, a: 0.5}
