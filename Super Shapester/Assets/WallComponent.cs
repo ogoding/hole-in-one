@@ -23,6 +23,11 @@ public class WallComponent : MonoBehaviour {
         {
             GameObject cutout = (GameObject)Instantiate(cutoutShapes[Random.Range(0,cutoutShapes.Length)], this.transform.position, this.transform.rotation);
 
+            if (cutout.GetComponent<Shape>().type == Shape.ShapeType.Circle)
+            {
+                cutout.transform.localEulerAngles = new Vector3(90, 0, 0);
+            }
+
             Vector3 scale = cutout.transform.localScale;
             scale.x = xScale + cutout.GetComponent<Shape>().xScale;
             scale.y = yScale + cutout.GetComponent<Shape>().yScale;
