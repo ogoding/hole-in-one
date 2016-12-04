@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38cc115e41a5ccb499dce6881964c91c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xScale: 2
-  yScale: 2
+  xScale: 4
+  yScale: 4
   zScale: 1.5
   cutoutCount: 3
   cutouts: []
