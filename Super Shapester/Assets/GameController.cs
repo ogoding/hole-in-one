@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 	public Text livesText;
 	public Text difficultyText;
 
+
 	[Header ("Time")]
 	public float startTimescale = 1.0f;
 	public float increaseRate = 0.01f;
@@ -28,16 +29,37 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
-		scoreText.text = "" + PlayerPrefs.GetInt ("Scores");
-		livesText.text = "" + PlayerPrefs.GetInt ("Lives");
+		if (Time.timeScale <= Time.unscaledDeltaTime) 
+		{
+			Time.timeScale = Time.unscaledDeltaTime;
+		}
 
-		Time.timeScale += increaseRate * Time.unscaledDeltaTime;
+		if (PlayerPrefs.GetInt ("Lives") > 0) 
+		{
+			Time.timeScale += increaseRate * Time.unscaledDeltaTime;
+			difficultyText.text = "" + Mathf.RoundToInt (Time.timeScale) + "";
+			scoreText.text = "" + PlayerPrefs.GetInt ("Scores");
+			livesText.text = "" + PlayerPrefs.GetInt ("Lives");
+		}
+
+		if (PlayerPrefs.GetInt ("Lives") <= 0 && Time.timeScale > Time.unscaledDeltaTime) 
+		{
+			Time.timeScale -= Time.unscaledDeltaTime;
+			Cursor.visible = true;
+			ShowMouse ();
+			GetComponent<MouseController> ().ShowMouse ();
+
+			GameObject.Find ("BackgroundMusic").GetComponent<AudioPitchByTimescale> ().enabled = false;
+
+			if (GameObject.Find ("BackgroundMusic").GetComponent<AudioSource> ().pitch > 0) 
+			{
+				GameObject.Find ("BackgroundMusic").GetComponent<AudioSource> ().pitch -= 0.25f * Time.unscaledDeltaTime;
+			}
+		}
+
 		timeScaleNow = Time.timeScale;
-		//Time.fixedDeltaTime = Time.timeScale * 0.01667f;
 
-		difficultyText.text = "" + Mathf.RoundToInt (Time.timeScale) + "";
-
-		if (Input.GetKeyDown (KeyCode.R)) 
+		if (Input.GetKeyDown (KeyCode.R) && PlayerPrefs.GetInt ("Lives") <= 0) 
 		{
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 		}

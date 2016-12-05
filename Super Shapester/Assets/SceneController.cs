@@ -13,7 +13,7 @@ public class SceneController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		Time.fixedDeltaTime = Time.timeScale * 0.016f;
+		//Time.fixedDeltaTime = Time.timeScale * 0.016f;
 
 		//Scene starts with menu up
 		//Transition to bring up the game
@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour {
 
 	public void ResetGame()
 	{
-		SceneManager.LoadScene ("main");
+		//SceneManager.LoadScene ("main");
 	}
 
 	public void ChangeToInGame()

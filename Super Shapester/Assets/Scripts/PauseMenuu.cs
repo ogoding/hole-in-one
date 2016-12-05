@@ -1,52 +1,57 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class PauseMenuu : MonoBehaviour {
-
+public class PauseMenuu : MonoBehaviour 
+{
 	public GameObject PauseUI;
 
 	private bool paused = false;
 	
-	void Start(){
-
+	void Start()
+	{
 		PauseUI.SetActive (false);
 	}
 	
-	void Update(){
-
-		if (Input.GetButtonDown("Pause")){
-
+	void Update()
+	{
+		if (Input.GetButtonDown("Pause"))
+		{
 			paused = !paused;
-	}
+		}
 	
-		if (paused){
-
+		if (paused)
+		{
 			PauseUI.SetActive(true);
-			Time.timeScale = 0;
+			//Time.timeScale = 0;
 		}
-		if (!paused){
-							
+
+		if (!paused)
+		{
 			PauseUI.SetActive(false);
-			Time.timeScale = 1;
+			//Time.timeScale = 1;
 		}
 	}
 	
-	public void Resume(){
-		
+	public void Resume ()
+	{
 		paused = false;
 	}
 	
-	public void Restart(){
-		
-		Application.LoadLevel(Application.loadedLevel);
+	public void Restart ()
+	{
+		//Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 	
-	public void Main(){
-		
-		Application.LoadLevel(1);
+	public void Main ()
+	{
+		//Application.LoadLevel(1);
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 	
-	public void Quit(){
+	public void Quit ()
+	{
 		Application.Quit ();
 	}
 	

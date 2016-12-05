@@ -54,6 +54,14 @@ public class WallComponent : MonoBehaviour {
         }
     }
 
+	void Update ()
+	{
+		if (transform.position.z < -9) 
+		{
+			Destroy (gameObject);
+		}
+	}
+
     private float GetRandomCutoutPosition(float min, float max, float padding)
     {
         float randPos = Random.Range(min + padding, max - padding);

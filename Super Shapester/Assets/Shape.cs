@@ -16,37 +16,40 @@ public class Shape : MonoBehaviour {
     public float xScale;
     public float yScale;
     public float zScale;
-
+	/*
 	public GameObject QSphere;
 	public GameObject QSquare;
 	public GameObject QTriangle;
 
 	public GameObject ESphere;
 	public GameObject ESquare;
-	public GameObject ETriangle;
+	public GameObject ETriangle;*/
+
+
 
 	void Update ()
 	{
 		if (type == ShapeType.Circle && (gameObject.name == "Player 1" || gameObject.name == "Player 2")) 
-		{
+		{/*
 			QSquare.SetActive (true);
 			QSphere.SetActive (false);
 			QTriangle.SetActive (false);
 
 			ESquare.SetActive (false);
 			ESphere.SetActive (false);
-			ETriangle.SetActive (true);
+			ETriangle.SetActive (true);*/
 		}
 
 		if (type == ShapeType.Rectangle && (gameObject.name == "Player 1" || gameObject.name == "Player 2")) 
 		{
+			/*
 			QSphere.SetActive (false);
 			QSquare.SetActive (false);
 			QTriangle.SetActive (true);
 
 			ESquare.SetActive (false);
 			ESphere.SetActive (true);
-			ETriangle.SetActive (false);
+			ETriangle.SetActive (false);*/
 		}
 
 		/*

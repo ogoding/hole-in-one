@@ -28,7 +28,7 @@ public class WallSpawner : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 		if (ReadyToSpawn()) 
 		{
@@ -58,7 +58,7 @@ public class WallSpawner : MonoBehaviour {
 	private bool ReachedCamera(GameObject wall)
 	{
 		return false;
-		return wall.transform.position.z <= 2.2f;
+		//return wall.transform.position.z <= 2.2f;
 	}
 
 	private bool ReadyToSpawn()

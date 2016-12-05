@@ -12,6 +12,7 @@ public class AudioPitchByTimescale : MonoBehaviour
 
 	void Start ()
 	{
+		Time.timeScale = 1;
 		if (Audio == null) 
 		{
 			Audio = GetComponent<AudioSource> ();
