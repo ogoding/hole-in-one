@@ -3,10 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class InputManager : MonoBehaviour {
-    private enum Direction {
+public class InputManager : MonoBehaviour 
+{
+    private enum Direction 
+	{
         Up, Down, Left, Right
     }
+
 	public float minX = -13;
 	public float maxX = 13;
 	public float minY = -7;
@@ -18,11 +21,7 @@ public class InputManager : MonoBehaviour {
 
 	public Text highScoreText;
 	public Button PlayButton;
-
-    private void Start()
-    {
-    }
-    
+	    
     void Update () 
 	{		
 		if (Input.GetKeyDown ("joystick button 7")) 
@@ -51,40 +50,26 @@ public class InputManager : MonoBehaviour {
 
 	private void HandleInput(string playerID, GameObject player)
 	{
-		player.transform.position = new Vector3 (
+		player.transform.position = new Vector3 
+		(
 			Mathf.Clamp (player.transform.position.x, -13, 13),
 			Mathf.Clamp (player.transform.position.y, -7, 7),
 			18
-
 		);
 
-		//if (Input.GetButton(playerID + "Horizontal"))
-		//{
-		if (Input.GetAxis(playerID + "Horizontal") > 0) //&& PlayerCanMoveInDirection(Direction.Right, player))
+		if (Input.GetAxis(playerID + "Horizontal") > 0)
 		{
 			player.transform.Translate(playerSpeed * (Input.GetAxis (playerID + "Horizontal")), 0, 0);
-			//player.GetComponent<Rigidbody> ().AddForce (playerSpeed * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
 		}
 
-		if (Input.GetAxis(playerID + "Horizontal") < 0) //&& PlayerCanMoveInDirection(Direction.Right, player))
+		if (Input.GetAxis(playerID + "Horizontal") < 0)
 		{
 			player.transform.Translate(playerSpeed * (Input.GetAxis (playerID + "Horizontal")), 0, 0);
-			//player.GetComponent<Rigidbody> ().AddForce (playerSpeed * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
 		}
-
-		//else if (PlayerCanMoveInDirection(Direction.Left, player))
-		//{
-			//player.transform.Translate((-1 * playerSpeed) * (1), 0, 0);
-			//player.GetComponent<Rigidbody> ().AddForce ((-1 * playerSpeed) * (1 / Time.timeScale), 0, 0, ForceMode.VelocityChange);
-		//}
-		//}
-
-		//if (Input.GetAxis(playerID + "Vertical"))
-		//{
-		if (Input.GetAxis(playerID + "Vertical") > 0)//&& PlayerCanMoveInDirection(Direction.Up, player))
+			
+		if (Input.GetAxis(playerID + "Vertical") > 0)
 		{
 			player.transform.Translate(0, playerSpeed * (Input.GetAxis (playerID + "Vertical")), 0);
-			//player.GetComponent<Rigidbody> ().AddForce (0, playerSpeed * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
 		}
 
 		if (Input.GetAxis (playerID + "Vertical") < 0) 
@@ -92,16 +77,21 @@ public class InputManager : MonoBehaviour {
 			player.transform.Translate(0, playerSpeed * (Input.GetAxis (playerID + "Vertical")), 0);
 		}
 
-			//else if (PlayerCanMoveInDirection(Direction.Down, player))
-			//{
-			//	player.transform.Translate(0, (-1 * playerSpeed) * (1), 0);
-				//player.GetComponent<Rigidbody> ().AddForce (0, (-1 * playerSpeed) * (1 / Time.timeScale), 0, ForceMode.VelocityChange);
-			//}
-
 		if (Input.GetButtonDown(playerID + "NextShape"))
 		{
 			player.GetComponent<PlayerShape>().nextShape(Input.GetAxis(playerID + "NextShape") > 0);
 
+			// Become Rectangle.
+			if (player.GetComponent<PlayerShape> ().currentShape == 1) 
+			{
+				player.GetComponent<Animator> ().Play ("ToCube");
+			}
+
+			// Become Sphere.
+			if (player.GetComponent<PlayerShape> ().currentShape == 0) 
+			{
+				player.GetComponent<Animator> ().Play ("ToSphere");
+			}
 		}
 	}
 

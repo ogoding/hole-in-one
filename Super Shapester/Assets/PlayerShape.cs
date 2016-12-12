@@ -54,7 +54,7 @@ public class PlayerShape : Shape {
             currentShape = availableShapes.Length - 1;
         }
 
-        GetComponent<MeshFilter>().mesh = availableShapes[currentShape];
+        //GetComponent<MeshFilter>().mesh = availableShapes[currentShape];
 
 		switch (availableShapes [currentShape].name) {
 		case "PlayerCube":
@@ -118,5 +118,17 @@ public class PlayerShape : Shape {
 			scoreAnim.Play ("ScoreAnim");
 			PassAudio.Play ();
 		}
+	}
+
+	public void ChangeToSphere ()
+	{
+		GetComponent<MeshFilter> ().mesh.name = "PlayerSphere";
+		//GetComponent<MeshRenderer>().material = sphereShape;
+	}
+
+	public void ChangeToCube ()
+	{
+		GetComponent<MeshFilter> ().mesh.name = "PlayerSphere";
+		//GetComponent<MeshRenderer>().material = SquareShape;
 	}
 }
